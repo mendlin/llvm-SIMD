@@ -7,18 +7,18 @@ A prototype trying to optimize SIMD operations during compile time
 
 Think about the following code: 
 
-```C++  
-  SIMD_type a, b, c;  
-  
-  a = mvmd<32>::fill4(rand(), rand(), rand(), rand());
-  b = simd<64>::add_hl(simd<32>::add_hl(simd<16>::add_hl(a)));
-  c = _mm_sad_epu8(a, simd<32>::constant<0>());
+```c
+SIMD_type a, b, c;  
+
+a = mvmd<32>::fill4(rand(), rand(), rand(), rand());
+b = simd<64>::add_hl(simd<32>::add_hl(simd<16>::add_hl(a)));
+c = _mm_sad_epu8(a, simd<32>::constant<0>());
 ```
 
 We are sure `b` and `c` should always be the same. With `clang++ -O3 -emit-llvm -S`, we can generate the following IR:
 
 + Setting `a`, `a` is stored in `%vecinit3.i.i`
-```LLVM-IR
+```
   %vecinit.i.i = insertelement <4 x i32> undef, i32 %call3, i32 0
   %vecinit1.i.i = insertelement <4 x i32> %vecinit.i.i, i32 %call2, i32 1
   %vecinit2.i.i = insertelement <4 x i32> %vecinit1.i.i, i32 %call1, i32 2
@@ -26,7 +26,7 @@ We are sure `b` and `c` should always be the same. With `clang++ -O3 -emit-llvm 
 ```
 
 + Calculate `b`, `b` is finally stored in `%add.i.i.i63`
-```LLVM-IR
+```
   %0 = bitcast <4 x i32> %vecinit3.i.i to <2 x i64>
   %1 = bitcast <4 x i32> %vecinit3.i.i to <8 x i16>
   %2 = call <8 x i16> @llvm.x86.sse2.psrli.w(<8 x i16> %1, i32 8) #1
