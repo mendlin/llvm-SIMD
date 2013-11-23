@@ -1,7 +1,7 @@
 dnl **************************************************************************
 dnl * Initialize
 dnl **************************************************************************
-AC_INIT([[[SAMPLE]]],[[[x.xx]]],[bugs@yourdomain])
+AC_INIT([[[LLVM-SIMD]]],[[[0.00]]],[bluebird498@gmail.com])
 
 dnl Identify where LLVM source tree is
 LLVM_SRC_ROOT="../.."
