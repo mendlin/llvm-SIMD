@@ -6,9 +6,7 @@
 int
 main (int argc, char ** argv)
 {
-	printf("Hello world!\n");
   printf ("%d\n", compute_sample (5));
-
-  return 0;
+  exit (0);
 }
 

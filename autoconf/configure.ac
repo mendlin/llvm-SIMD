@@ -4,8 +4,8 @@ dnl **************************************************************************
 AC_INIT([[[LLVM-SIMD]]],[[[0.00]]],[bluebird498@gmail.com])
 
 dnl Identify where LLVM source tree is
-LLVM_SRC_ROOT="../.."
-LLVM_OBJ_ROOT="../.."
+LLVM_SRC_ROOT="/home/linmengl/llvm_suit/llvm"
+LLVM_OBJ_ROOT="/home/linmengl/llvm-suit/build"
 
 dnl Find absolute paths to LLVM source and object trees
 LLVM_ABS_SRC_ROOT="`cd $srcdir ; cd $LLVM_SRC_ROOT ; pwd`"

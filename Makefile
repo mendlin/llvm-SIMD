@@ -7,14 +7,13 @@
 #
 # Indicates our relative path to the top of the project's root directory.
 #
+
 LEVEL = .
 DIRS = lib tools
 EXTRA_DIST = include
 
-LOADABLE_MODULE = 1
 CPPFLAGS += -std=c++11
 
-#
 # Include the Master Makefile that knows how to build all.
 #
 include $(LEVEL)/Makefile.common
