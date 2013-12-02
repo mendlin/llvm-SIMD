@@ -1,4 +1,4 @@
-llvm-SIMD
+LLVM-SIMD
 =========
 
 A prototype trying to optimize SIMD operations during compile time
@@ -51,3 +51,10 @@ We are sure `b` and `c` should always be the same. With `clang++ -O3 -emit-llvm 
 ```
 
 Obviously, `c` runs faster then `b`, `c` is the optimized result we want from `b` and LLVM is not doing this for us. 
+
+## Target independent IR generation for SIMD
+
+When programming SIMD in C/C++, we use compiler intrinsics, such as `_mm_set1_epi32`(Intel SSE2) or `_mm256_add_epi64`(Intel AVX2) which is target dependent by its natural. So Clang couldn't eliminate this dependence for us. 
+
+As a result, we would have something like `@llvm.x86.sse2.psrli.w` in our compiled IR. This work trys to overcome target dependence problem, thus making our IR file portable to a variaty of platforms.
+
