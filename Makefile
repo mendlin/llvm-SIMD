@@ -12,8 +12,6 @@ LEVEL = .
 DIRS = lib tools
 EXTRA_DIST = include
 
-# CPPFLAGS += -std=c++11
-
 # Include the Master Makefile that knows how to build all.
 #
 include $(LEVEL)/Makefile.common

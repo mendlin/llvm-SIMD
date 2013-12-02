@@ -1,0 +1,1 @@
+opt -load Debug+Asserts/lib/LLVMHello.so -stats -$1 < tests/playground.ll > /dev/null
