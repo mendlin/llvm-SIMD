@@ -1,14 +1,15 @@
 #!/usr/bin/python
 
-HeaderTop = '''\
-// typedef int SIMD_type __attribute__((__vector_size__(16)));
+# Once correct register_bits is set, related constants are set automatically.
+register_bits = 128
 
-'''
+HeaderTop = '''\
+// typedef int SIMD_type __attribute__((__vector_size__({0})));
+
+'''.format(register_bits / 8)
 
 doth_filename = "header.h"
 dotll_filename = "header.ll"
-
-register_bits = 128
 
 vertical_decl_template = '''\
 SIMD_type {llvm_func}(SIMD_type a, SIMD_type b);
@@ -23,8 +24,12 @@ entry:
 '''
 
 fw_set = [2, 4, 8, 16, 32, 64, 128]
+if register_bits > 128:
+    fw_set.append(256)
+
 vertical_ir_set = ['add', 'sub', 'mul', 'and', 'or',
-                   'icmp eq', 'icmp sgt', 'icmp ugt', 'icmp slt', 'icmp ult']
+                   'icmp eq', 'icmp sgt', 'icmp ugt', 'icmp slt', 'icmp ult',
+                   'shl', 'lshr', 'ashr']
 
 
 def get_llvm_func(fw, ir_func):

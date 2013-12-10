@@ -383,3 +383,108 @@ entry:
 	%res = sext <1 x i1> %cmp_res to <1 x i128>
     ret <1 x i128> %res
 }
+define <64 x i2> @llvm_shl_2(<64 x i2> %a, <64 x i2> %b) alwaysinline {
+entry:
+    %res = shl <64 x i2> %a, %b
+    ret <64 x i2> %res
+}
+define <32 x i4> @llvm_shl_4(<32 x i4> %a, <32 x i4> %b) alwaysinline {
+entry:
+    %res = shl <32 x i4> %a, %b
+    ret <32 x i4> %res
+}
+define <16 x i8> @llvm_shl_8(<16 x i8> %a, <16 x i8> %b) alwaysinline {
+entry:
+    %res = shl <16 x i8> %a, %b
+    ret <16 x i8> %res
+}
+define <8 x i16> @llvm_shl_16(<8 x i16> %a, <8 x i16> %b) alwaysinline {
+entry:
+    %res = shl <8 x i16> %a, %b
+    ret <8 x i16> %res
+}
+define <4 x i32> @llvm_shl_32(<4 x i32> %a, <4 x i32> %b) alwaysinline {
+entry:
+    %res = shl <4 x i32> %a, %b
+    ret <4 x i32> %res
+}
+define <2 x i64> @llvm_shl_64(<2 x i64> %a, <2 x i64> %b) alwaysinline {
+entry:
+    %res = shl <2 x i64> %a, %b
+    ret <2 x i64> %res
+}
+define <1 x i128> @llvm_shl_128(<1 x i128> %a, <1 x i128> %b) alwaysinline {
+entry:
+    %res = shl <1 x i128> %a, %b
+    ret <1 x i128> %res
+}
+define <64 x i2> @llvm_lshr_2(<64 x i2> %a, <64 x i2> %b) alwaysinline {
+entry:
+    %res = lshr <64 x i2> %a, %b
+    ret <64 x i2> %res
+}
+define <32 x i4> @llvm_lshr_4(<32 x i4> %a, <32 x i4> %b) alwaysinline {
+entry:
+    %res = lshr <32 x i4> %a, %b
+    ret <32 x i4> %res
+}
+define <16 x i8> @llvm_lshr_8(<16 x i8> %a, <16 x i8> %b) alwaysinline {
+entry:
+    %res = lshr <16 x i8> %a, %b
+    ret <16 x i8> %res
+}
+define <8 x i16> @llvm_lshr_16(<8 x i16> %a, <8 x i16> %b) alwaysinline {
+entry:
+    %res = lshr <8 x i16> %a, %b
+    ret <8 x i16> %res
+}
+define <4 x i32> @llvm_lshr_32(<4 x i32> %a, <4 x i32> %b) alwaysinline {
+entry:
+    %res = lshr <4 x i32> %a, %b
+    ret <4 x i32> %res
+}
+define <2 x i64> @llvm_lshr_64(<2 x i64> %a, <2 x i64> %b) alwaysinline {
+entry:
+    %res = lshr <2 x i64> %a, %b
+    ret <2 x i64> %res
+}
+define <1 x i128> @llvm_lshr_128(<1 x i128> %a, <1 x i128> %b) alwaysinline {
+entry:
+    %res = lshr <1 x i128> %a, %b
+    ret <1 x i128> %res
+}
+define <64 x i2> @llvm_ashr_2(<64 x i2> %a, <64 x i2> %b) alwaysinline {
+entry:
+    %res = ashr <64 x i2> %a, %b
+    ret <64 x i2> %res
+}
+define <32 x i4> @llvm_ashr_4(<32 x i4> %a, <32 x i4> %b) alwaysinline {
+entry:
+    %res = ashr <32 x i4> %a, %b
+    ret <32 x i4> %res
+}
+define <16 x i8> @llvm_ashr_8(<16 x i8> %a, <16 x i8> %b) alwaysinline {
+entry:
+    %res = ashr <16 x i8> %a, %b
+    ret <16 x i8> %res
+}
+define <8 x i16> @llvm_ashr_16(<8 x i16> %a, <8 x i16> %b) alwaysinline {
+entry:
+    %res = ashr <8 x i16> %a, %b
+    ret <8 x i16> %res
+}
+define <4 x i32> @llvm_ashr_32(<4 x i32> %a, <4 x i32> %b) alwaysinline {
+entry:
+    %res = ashr <4 x i32> %a, %b
+    ret <4 x i32> %res
+}
+define <2 x i64> @llvm_ashr_64(<2 x i64> %a, <2 x i64> %b) alwaysinline {
+entry:
+    %res = ashr <2 x i64> %a, %b
+    ret <2 x i64> %res
+}
+define <1 x i128> @llvm_ashr_128(<1 x i128> %a, <1 x i128> %b) alwaysinline {
+entry:
+    %res = ashr <1 x i128> %a, %b
+    ret <1 x i128> %res
+}

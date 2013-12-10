@@ -18,8 +18,9 @@ int main()
 
 	cout << "Playground running..." << endl;
 
-	cout << Store2String(simd<8>::lt(a, b), 1) << endl;
-	cout << Store2String(llvm_icmp_slt_8(a, b), 1) << endl;
+	cout << Store2String(a,1) << endl;
+	cout << Store2String(simd<32>::slli<11>(a), 1) << endl;	
+	cout << Store2String(llvm_shl_32(a, b), 1) << endl;	
 
 	return 0;
 }
