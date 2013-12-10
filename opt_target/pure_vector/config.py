@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 HeaderTop = '''\
-typedef int SIMD_type __attribute__((__vector_size__(16)));
+// typedef int SIMD_type __attribute__((__vector_size__(16)));
 
 '''
 
@@ -18,7 +18,7 @@ vertical_impl_template = '''\
 define {vec_type} @{llvm_func}({vec_type} %a, {vec_type} %b) alwaysinline {{
 entry:
     {impl}
-    return {vec_type} %res
+    ret {vec_type} %res
 }}
 '''
 
@@ -43,7 +43,7 @@ def get_vertical_decl(fw, ir_func):
 
 def get_vertical_impl(fw, ir_func):
     if (ir_func.startswith('icmp')):
-        impl = ("%cmp_res = {ir_func} {bool_vec_type} %a, %b\n"
+        impl = ("%cmp_res = {ir_func} {vec_type} %a, %b\n"
                 "\t%res = sext {bool_vec_type} %cmp_res to {vec_type}")
     else:
         impl = "%res = {ir_func} {vec_type} %a, %b"

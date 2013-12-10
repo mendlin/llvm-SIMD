@@ -1,4 +1,4 @@
-typedef int SIMD_type __attribute__((__vector_size__(16)));
+// typedef int SIMD_type __attribute__((__vector_size__(16)));
 
 SIMD_type llvm_add_2(SIMD_type a, SIMD_type b);
 SIMD_type llvm_add_4(SIMD_type a, SIMD_type b);
