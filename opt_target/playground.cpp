@@ -15,18 +15,10 @@ int main()
 
 	// b = simd<64>::add_hl(simd<32>::add_hl(simd<16>::add_hl(a)));
 	// c = _mm_sad_epu8(a, simd<32>::constant<0>());
-	c = add_vector(a, b);
-	d = simd<32>::add(a, b);
 
 	cout << "Playground running..." << endl;
 
-	cout << "add_vector: " << endl;
-	cout << (Store2String(c, 1) == Store2String(d, 1)) << endl;	
-
-	cout << "add_vector_64: " << endl;
-	c = add_vector_64(a, b);
-	d = simd<64>::add(a, b);
-	cout << (Store2String(c, 1) == Store2String(d, 1)) << endl;	
+	cout << Store2String(simd<8>::eq(a, b), 1) << endl;
 
 	return 0;
 }
