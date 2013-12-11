@@ -16,4 +16,4 @@ run: playground.cpp
 	clang++ $(CPPFLAG) playground.cpp -o playground 
 
 clean: 
-	rm all.* optimized.* playground.ll playground *.bc
+	rm all.* optimized.* playground.ll playground *.bc *.pyc

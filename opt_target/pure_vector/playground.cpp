@@ -6,7 +6,7 @@ extern "C" {
 }
 
 int main()
-{
+{	
 	SIMD_type a, b, c, d;
 	// b = simd<32>::constant<11>();
 	// d = LoadfromString(str0, 2);	
@@ -18,9 +18,11 @@ int main()
 
 	cout << "Playground running..." << endl;
 
-	cout << Store2String(a,1) << endl;
-	cout << Store2String(simd<32>::slli<11>(a), 1) << endl;	
-	cout << Store2String(llvm_shl_32(a, b), 1) << endl;	
+	cout << Store2String(mvmd<32>::insert<0>(a, 8),1) << endl;
+	cout << Store2String(llvm_insertelement_32(a, 8, 0), 1) << endl;		
+
+	cout << mvmd<32>::extract<2>(a) << endl;
+	cout << llvm_extractelement_32(a, 2) << endl;
 
 	return 0;
 }

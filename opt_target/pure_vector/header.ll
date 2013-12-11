@@ -488,3 +488,33 @@ entry:
     %res = ashr <1 x i128> %a, %b
     ret <1 x i128> %res
 }
+define i32 @llvm_extractelement_32(<4 x i32> %a, i32 %idx) alwaysinline {
+entry:
+    %res = extractelement <4 x i32> %a, i32 %idx
+    ret i32 %res
+}
+define i16 @llvm_extractelement_16(<8 x i16> %a, i32 %idx) alwaysinline {
+entry:
+    %res = extractelement <8 x i16> %a, i32 %idx
+    ret i16 %res
+}
+define i64 @llvm_extractelement_64(<2 x i64> %a, i32 %idx) alwaysinline {
+entry:
+    %res = extractelement <2 x i64> %a, i32 %idx
+    ret i64 %res
+}
+define <4 x i32> @llvm_insertelement_32(<4 x i32> %a, i32 %val, i32 %idx) alwaysinline {
+entry:
+    %res = insertelement <4 x i32> %a, i32 %val, i32 %idx
+    ret <4 x i32> %res
+}
+define <8 x i16> @llvm_insertelement_16(<8 x i16> %a, i16 %val, i32 %idx) alwaysinline {
+entry:
+    %res = insertelement <8 x i16> %a, i16 %val, i32 %idx
+    ret <8 x i16> %res
+}
+define <2 x i64> @llvm_insertelement_64(<2 x i64> %a, i64 %val, i32 %idx) alwaysinline {
+entry:
+    %res = insertelement <2 x i64> %a, i64 %val, i32 %idx
+    ret <2 x i64> %res
+}
