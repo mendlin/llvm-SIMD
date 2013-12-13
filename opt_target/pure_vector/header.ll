@@ -173,6 +173,41 @@ entry:
     %res = or <1 x i128> %a, %b
     ret <1 x i128> %res
 }
+define <64 x i2> @llvm_xor_2(<64 x i2> %a, <64 x i2> %b) alwaysinline {
+entry:
+    %res = xor <64 x i2> %a, %b
+    ret <64 x i2> %res
+}
+define <32 x i4> @llvm_xor_4(<32 x i4> %a, <32 x i4> %b) alwaysinline {
+entry:
+    %res = xor <32 x i4> %a, %b
+    ret <32 x i4> %res
+}
+define <16 x i8> @llvm_xor_8(<16 x i8> %a, <16 x i8> %b) alwaysinline {
+entry:
+    %res = xor <16 x i8> %a, %b
+    ret <16 x i8> %res
+}
+define <8 x i16> @llvm_xor_16(<8 x i16> %a, <8 x i16> %b) alwaysinline {
+entry:
+    %res = xor <8 x i16> %a, %b
+    ret <8 x i16> %res
+}
+define <4 x i32> @llvm_xor_32(<4 x i32> %a, <4 x i32> %b) alwaysinline {
+entry:
+    %res = xor <4 x i32> %a, %b
+    ret <4 x i32> %res
+}
+define <2 x i64> @llvm_xor_64(<2 x i64> %a, <2 x i64> %b) alwaysinline {
+entry:
+    %res = xor <2 x i64> %a, %b
+    ret <2 x i64> %res
+}
+define <1 x i128> @llvm_xor_128(<1 x i128> %a, <1 x i128> %b) alwaysinline {
+entry:
+    %res = xor <1 x i128> %a, %b
+    ret <1 x i128> %res
+}
 define <64 x i2> @llvm_icmp_eq_2(<64 x i2> %a, <64 x i2> %b) alwaysinline {
 entry:
     %cmp_res = icmp eq <64 x i2> %a, %b

@@ -56,7 +56,7 @@ if register_bits > 128:
 
 c_type_fw = {'short': 16, 'int': 32, 'long long': 64}
 
-vertical_ir_set = ['add', 'sub', 'mul', 'and', 'or',
+vertical_ir_set = ['add', 'sub', 'mul', 'and', 'or', 'xor',
                    'icmp eq', 'icmp sgt', 'icmp ugt', 'icmp slt', 'icmp ult',
                    'shl', 'lshr', 'ashr']
 
