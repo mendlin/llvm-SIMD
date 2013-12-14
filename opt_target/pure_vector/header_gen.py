@@ -19,6 +19,13 @@ def append_vector(doth, dotll, ir_func):
             fw=fw, n=config.register_bits / fw))
 
 
+def append_load_store(doth, dotll):
+    n = config.register_bits / 64
+    for ir_func in ['load_aligned', 'load_unaligned']:
+        doth.write(config.decl_template[ir_func])
+        dotll.write(config.impl_template[ir_func].format(n=n))
+        
+
 with open(config.doth_filename, 'w') as doth, \
         open(config.dotll_filename, 'w') as dotll:
     # Declear SIMD_type
@@ -30,3 +37,5 @@ with open(config.doth_filename, 'w') as doth, \
 
     append_vector(doth, dotll, 'extractelement')
     append_vector(doth, dotll, 'insertelement')
+
+    append_load_store(doth, dotll)

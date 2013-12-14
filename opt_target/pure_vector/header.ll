@@ -553,3 +553,17 @@ entry:
     %res = insertelement <2 x i64> %a, i64 %val, i32 %idx
     ret <2 x i64> %res
 }
+define <2 x i64> @llvm_load_aligned(<2 x i64>* %a) alwaysinline {
+entry:
+    %res = load <2 x i64>* %a, align 16
+    ret <2 x i64> %res
+}
+define <2 x i64> @llvm_load_unaligned(<2 x i64>* %a) alwaysinline {
+entry:
+    %res = load <2 x i64>* %a, align 1
+    ret <2 x i64> %res
+}
+define void @llvm_store_aligned(<2 x i64> %a, <2 x i64>* %addr) alwaysinline {
+  store <2 x i64> %a, <2 x i64>* %addr, align 16
+  ret void
+}

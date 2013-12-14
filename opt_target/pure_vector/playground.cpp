@@ -18,12 +18,12 @@ int main()
 
 	cout << "Playground running..." << endl;
 
-	cout << Store2String(mvmd<32>::insert<0>(a, 8),1) << endl;
-	cout << Store2String(llvm_insertelement_32(a, 8, 0), 1) << endl;		
+	int pool[5] = {1, 2, 3, 4, 5};
+	bitblock::store_unaligned(a, (bitblock128_t *) pool);
+	cout << pool[0] << pool[1] << pool[2] << pool[3] << endl;	
 
-	cout << mvmd<32>::extract<2>(a) << endl;
-	cout << llvm_extractelement_32(a, 2) << endl;
-
+	// llvm_store_unaligned(a, (bitblock128_t *) pool);
+	// cout << pool[0] << pool[1] << pool[2] << pool[3] << endl;	
 	return 0;
 }
 

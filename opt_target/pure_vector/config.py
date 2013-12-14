@@ -50,6 +50,30 @@ entry:
 }}
 '''
 
+decl_template['load_aligned'] = '''\
+SIMD_type llvm_load_aligned(SIMD_type *a);
+'''
+
+impl_template['load_aligned'] = '''\
+define <{n} x i64> @llvm_load_aligned(<{n} x i64>* %a) alwaysinline {{
+entry:
+    %res = load <{n} x i64>* %a, align 16
+    ret <{n} x i64> %res
+}}
+'''
+
+decl_template['load_unaligned'] = '''\
+SIMD_type llvm_load_unaligned(SIMD_type *a);
+'''
+
+impl_template['load_unaligned'] = '''\
+define <{n} x i64> @llvm_load_unaligned(<{n} x i64>* %a) alwaysinline {{
+entry:
+    %res = load <{n} x i64>* %a, align 1
+    ret <{n} x i64> %res
+}}
+'''
+
 fw_set = [2, 4, 8, 16, 32, 64, 128]
 if register_bits > 128:
     fw_set.append(256)
