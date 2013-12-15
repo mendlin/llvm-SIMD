@@ -19,7 +19,9 @@ int main()
 	cout << "Playground running..." << endl;
 
 	int pool[5] = {1, 2, 3, 4, 5};
-	bitblock::store_unaligned(a, (bitblock128_t *) pool);
+	bitblock::store_aligned(a, (bitblock128_t *) pool);
+	cout << pool[0] << pool[1] << pool[2] << pool[3] << endl;	
+	llvm_store_aligned(a, (bitblock128_t *) pool);
 	cout << pool[0] << pool[1] << pool[2] << pool[3] << endl;	
 
 	// llvm_store_unaligned(a, (bitblock128_t *) pool);

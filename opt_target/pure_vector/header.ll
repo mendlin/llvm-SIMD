@@ -567,3 +567,7 @@ define void @llvm_store_aligned(<2 x i64> %a, <2 x i64>* %addr) alwaysinline {
   store <2 x i64> %a, <2 x i64>* %addr, align 16
   ret void
 }
+define void @llvm_store_unaligned(<2 x i64> %a, <2 x i64>* %addr) alwaysinline {
+  store <2 x i64> %a, <2 x i64>* %addr, align 1
+  ret void
+}

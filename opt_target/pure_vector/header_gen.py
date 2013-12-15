@@ -21,7 +21,7 @@ def append_vector(doth, dotll, ir_func):
 
 def append_load_store(doth, dotll):
     n = config.register_bits / 64
-    for ir_func in ['load_aligned', 'load_unaligned']:
+    for ir_func in ['load_aligned', 'load_unaligned', 'store_aligned', 'store_unaligned']:
         doth.write(config.decl_template[ir_func])
         dotll.write(config.impl_template[ir_func].format(n=n))
         
